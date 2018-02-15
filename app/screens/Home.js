@@ -6,6 +6,8 @@ import TextInputWithButton from '../components/TextInput/TextInputWithButton';
 import ClearButton from '../components/Button/ClearButton';
 import Lastconverted from '../components/Text/LastConverted';
 import {Header} from '../components/Header';
+
+
 const TEMP_BASE_CURRENCY = 'USD';
 const TEMP_QUOTE_CURRENCY = 'GBP';
 const TEMP_BASE_PRICE = '100';
