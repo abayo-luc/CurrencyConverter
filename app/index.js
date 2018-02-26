@@ -5,7 +5,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 // import Options from './screens/Options';
 // import Themes from './screens/Themes';
 import Navigator from './config/routes';
-import AlertProvider from './components/Alert/AlerProvider';
+import AlertProvider from './components/Alert/AlertProvider';
 
 EStyleSheet.build({
   $primaryBlue: '#4F6D7A',
