@@ -1,19 +1,23 @@
-import EStyleSheet from 'react-native-extended-stylesheet';
 import { StyleSheet } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
+
 const INPUT_HEIGHT = 48;
 const BORDER_RADIUS = 4;
-const styles = EStyleSheet.create({
+
+export default EStyleSheet.create({
+  $buttonBackgroundColorBase: '$white',
+  $buttonBackgroundColorModifier: 0.1,
   container: {
     backgroundColor: '$white',
     width: '90%',
     height: INPUT_HEIGHT,
-    borderRadius: BORDER_RADIUS,
-    alignItems: 'center',
     flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: BORDER_RADIUS,
     marginVertical: 11,
   },
   containerDisabled: {
-    backgroundColor: '$lightGray'
+    backgroundColor: '$lightGray',
   },
   buttonContainer: {
     height: INPUT_HEIGHT,
@@ -29,18 +33,17 @@ const styles = EStyleSheet.create({
     paddingHorizontal: 16,
     color: '$primaryBlue',
   },
-  border: {
+  separator: {
     height: INPUT_HEIGHT,
     width: StyleSheet.hairlineWidth,
-    backgroundColor: '$border'
+    backgroundColor: '$border',
   },
   input: {
-    height: INPUT_HEIGHT,
     flex: 1,
-    fontSize: 18,
+    height: INPUT_HEIGHT,
+    borderTopRightRadius: BORDER_RADIUS,
     paddingHorizontal: 8,
     color: '$inputText',
-  }
+    fontSize: 18,
+  },
 });
-
-export default styles;

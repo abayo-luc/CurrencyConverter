@@ -14,11 +14,9 @@ class Options extends Component {
         alertWithType: PropTypes.func,
     }
     handleThemesPress = () => {
-        console.log('press themse')
         this.props.navigation.navigate('Themes');
     };
     handleSitePress = () => {
-        console.log('press site');
         Linking.openURL('http://fixer.io').catch(()=> this.props.alertWithType('error', 'Sorry!', "Fixer.io can't be reached right now."),);
 
     };
