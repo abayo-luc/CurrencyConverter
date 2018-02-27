@@ -8,8 +8,8 @@ import TextInputWithButton from '../components/TextInput/TextInputWithButton';
 import ClearButton from '../components/Button/ClearButton';
 import LastConverted from '../components/Text/LastConverted';
 import {Header} from '../components/Header';
-import {swapCurrency, changeCurrencyAmount} from '../Actions/currencies';
-
+import connectAlert from '../components/Alert/ConnectAlert';
+import {swapCurrency, changeCurrencyAmount, getInitialConversion} from '../Actions/currencies';
 
 class Home extends Component {
   static propTypes ={
@@ -22,7 +22,18 @@ class Home extends Component {
     isFetching: PropTypes.bool,
     lastConvertedDate: PropTypes.object,
     primaryColor: PropTypes.string,
+    alertWithType: PropTypes.func,
+    currencyError: PropTypes.string,
   };
+
+  componentWillMount() {
+      this.props.dispatch(getInitialConversion());
+  }
+  componentWillReceiveProps(nextProps){
+    if(nextProps.currencyError && nextProps.currencyError !== this.props.currencyError){
+      this.props.alertWithType('error', 'Error', nextProps.currencyError);
+    }
+  }
   handlePressBaseCurrency = () => {
     this.props.navigation.navigate('CurrencyList', {title: 'Base Currency', type: 'base'});
   };
@@ -89,6 +100,7 @@ const mpaStateToProps = (state) => {
     lastConvertedDate: conversionSelector.date ? new Date(conversionSelector.date) : new Date(),
     isFetching: conversionSelector.isFetching,
     primaryColor: state.themes.primaryColor,
+    currencyError: state.currencies.error
   };
 }
-export default connect(mpaStateToProps)(Home);
+export default connect(mpaStateToProps)(connectAlert(Home));
