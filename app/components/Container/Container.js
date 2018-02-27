@@ -5,7 +5,6 @@ import { View, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import styles from './styles';
 
 const Container = ({ children, backgroundColor }) => {
-  console.log(backgroundColor);
   const containerStyles = [styles.container]
   if(backgroundColor){
     containerStyles.push({backgroundColor: backgroundColor})
